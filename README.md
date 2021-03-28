@@ -4,7 +4,7 @@ Data de instalação das dependências: 27/03/2021
 
 - ## Descrição deste Setup:
 
-Este setup contém apenas o mínimo de dependências necessárias para iniciar a construção de uma API minimamente organizada.
+Este setup contém apenas o mínimo de dependências necessárias para iniciar a construção de uma API minimamente organizada juntamente com uma dependência de testes chamada Jest.
 
 - ## Pacotes utilizados:
 
@@ -26,6 +26,10 @@ yarn add eslint -D
 yarn eslint --init
 yarn add jest -D
 yarn add @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-typescript babel-plugin-module-resolver -D
+
+yarn jest --init
+yarn add ts-jest -D
+yarn add @types/jest -D
 ```
 
 > **OBS:** O comando `yarn add ts-node-dev -D` serve para instalar a dependência que permitirá reinicia o servidor automaticamente junto com o build do TypeScript (é algo como Node + Nodemon + TypeScript).
@@ -55,6 +59,17 @@ yarn add @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-type
 
 > **OBS:** O comando `yarn add @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-typescript babel-plugin-module-resolver -D`  serve para instalar as dependências necessárias para que a compilação do TypeScript ocorra corretamente.
 
+> **OBS:** O comando `yarn jest --init`  iniciará as definições das configurações básicas do Jest. As opções usadas são as seguintes:
+>
+>  ```
+>  ✔ Would you like to use Jest when running "test" script in "package.json"? … yes
+>  ✔ Would you like to use Typescript for the configuration file? … yes
+>  ✔ Choose the test environment that will be used for testing › node
+>  ✔ Do you want Jest to add coverage reports? … no
+>  ✔ Which provider should be used to instrument code for coverage? › babel
+>  ✔ Automatically clear mock calls and instances between every test? … yes
+>  ```
+
 - ## Scripts:
 
   - **yarn start**
@@ -66,6 +81,10 @@ yarn add @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-type
   - **yarn dev**
 
     > Inicia o servidor no modo de "desenvolvimento" com auto-reload (reinicia o servidor automaticamente ao editar algim arquivo).
+
+  - **yarn test**
+
+    > Inicia os testes dos arquivos com a sub-extensão "*.spec" (exemplo: "UserTest.spec.ts").
 
   - **yarn build**
 
@@ -88,4 +107,3 @@ yarn add @babel/cli @babel/core @babel/node @babel/preset-env @babel/preset-type
 
     - No arquivo "`tsconfig.json`" fazer as alterações em "`compilerOptions.paths`".
     - No arquivo "`babel.config.js`" fazer as alterações em "`plugins.[0][1].alias`".
-
